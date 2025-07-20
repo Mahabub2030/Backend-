@@ -10,7 +10,7 @@ import { handlerZodError } from "../helpers/handlerZodError";
 import { TErrorSources } from "../interfaces/error.types";
 
 export const globalErrorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
-    if (envVars.NODE_ENV == "development") {
+    if (envVars.NODE_ENV === "development") {
         console.log(err);
     }
 

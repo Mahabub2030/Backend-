@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { UserControllers } from "./user.controller";
 import { validateRequest } from "../../middlewares/validateRequest";
-import { updateUserZodSchema } from "./user.validation";
+import { createUserZodSchema, updateUserZodSchema } from "./user.validation";
 import { checkAuth } from "../../middlewares/checkAuth";
 import { Role } from "./user.interface";
 
@@ -9,7 +9,7 @@ const router = Router();
 // create or register router 
 router.post(
   "/register",
-  // validateRequest(createUserZodSchema),
+  validateRequest(createUserZodSchema),
   UserControllers.createUser
 );
 // get all user router

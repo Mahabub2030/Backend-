@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from "express";
 import { JwtPayload } from "jsonwebtoken";
 import { envVars } from "../config/env";
 import AppError from "../errorHelpers/AppError";
-
 import { User } from "../modules/user/user.model";
 import httpStatus from "http-status-codes"
 import { IsActive } from "../modules/user/user.interface";
@@ -39,9 +38,7 @@ export const checkAuth = (...authRoles: string[]) => async (req: Request, res: R
         next()
 
     } catch (error) {
-        if (envVars.NODE_ENV == "development") {
-        console.log(error);
-    }
+        console.log("jwt error", error);
         next(error)
     }
 }
