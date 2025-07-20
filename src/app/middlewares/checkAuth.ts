@@ -39,7 +39,9 @@ export const checkAuth = (...authRoles: string[]) => async (req: Request, res: R
         next()
 
     } catch (error) {
-        console.log("jwt error", error);
+        if (envVars.NODE_ENV == "development") {
+        console.log(error);
+    }
         next(error)
     }
 }
