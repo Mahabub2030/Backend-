@@ -110,6 +110,7 @@ const getAllTours = async (query: Record<string, string>) => {
         .paginate()
 
     // const meta = await queryBuilder.getMeta()
+// console.log(tours)
 
     const [data, meta] = await Promise.all([
         tours.build(),
@@ -155,12 +156,12 @@ const deleteTour = async (id: string) => {
 
 const createTourType = async (payload: ITourType) => {
     const existingTourType = await TourType.findOne({ name: payload.name });
-
+// const { name } = req.body; // or req.query / req.params
     if (existingTourType) {
         throw new Error("Tour type already exists.");
     }
 
-    return await TourType.create({ name });
+    return await TourType.create({ name:payload });
 };
 const getAllTourTypes = async () => {
     return await TourType.find();
