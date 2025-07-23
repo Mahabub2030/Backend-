@@ -11,6 +11,12 @@ import {
 
 const router = express.Router();
 
+
+/* ------------------ TOUR  ROUTES -------------------- */
+router.get("/", TourController.getAllTours);
+
+
+
 /* ------------------ TOUR TYPE ROUTES -------------------- */
 router.get("/tour-types", TourController.getAllTourTypes);
 
