@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 interface EnvConfig {
+  SSL: any;
   PORT: string;
   DB_URL: string;
   NODE_ENV: "development" | "production";
