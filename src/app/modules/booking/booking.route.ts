@@ -1,16 +1,17 @@
 import express from "express";
 
 import { checkAuth } from "../../middlewares/checkAuth";
+import { validateRequest } from "../../middlewares/validateRequest";
 import { Role } from "../user/user.interface";
 import { BookingController } from "./booking.controller";
-
+import { createBookingZodSchema, updateBookingStatusZodSchema } from "./booking.validation";
 
 const router = express.Router();
 
 // api/v1/booking
 router.post("/",
     checkAuth(...Object.values(Role)),
-    
+    validateRequest(createBookingZodSchema),
     BookingController.createBooking
 );
 
@@ -35,6 +36,7 @@ router.get("/:bookingId",
 // api/v1/booking/bookingId/status
 router.patch("/:bookingId/status",
     checkAuth(...Object.values(Role)),
+    validateRequest(updateBookingStatusZodSchema),
     BookingController.updateBookingStatus
 );
 
