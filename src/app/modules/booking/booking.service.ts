@@ -9,10 +9,9 @@ import { Tour } from "../tour/tour.model";
 import { User } from "../user/user.model";
 import { BOOKING_STATUS, IBooking } from "./booking.interface";
 import { Booking } from "./booking.model";
+import { getTransactionId } from "../../../utils/getTransactionId";
 
-const getTransactionId = () => {
-    return `tran_${Date.now()}_${Math.floor(Math.random() * 1000)}`
-}
+
 
 /**
  * Duplicate DB Collections / replica
@@ -32,6 +31,7 @@ const createBooking = async (payload: Partial<IBooking>, userId: string) => {
         if (!user?.phone || !user.address) {
             throw new AppError(httpStatus.BAD_REQUEST, "Please Update Your Profile to Book a Tour.")
         }
+
 
         const tour = await Tour.findById(payload.tour).select("costFrom")
 
