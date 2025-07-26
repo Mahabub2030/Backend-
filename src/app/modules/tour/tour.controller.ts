@@ -1,6 +1,5 @@
 
 import { Request, Response } from 'express';
-
 import { ITour } from './tour.interface';
 import { TourService } from './tour.service';
 import { catchAsync } from '../../../utils/catchAsync';

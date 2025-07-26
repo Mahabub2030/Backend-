@@ -24,7 +24,6 @@ export const deleteImageFromCLoudinary = async (url: string) => {
         const regex = /\/v\d+\/(.*?)\.(jpg|jpeg|png|gif|webp)$/i;
 
         const match = url.match(regex);
-
         console.log({ match });
 
         if (match && match[1]) {
