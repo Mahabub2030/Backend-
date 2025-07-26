@@ -7,11 +7,12 @@ import { envVars } from "./app/config/env";
 import "./app/config/passport";
 
 import notFound from "./app/middlewares/notFound";
-import router from "./router";
 import { globalErrorHandler } from "./app/middlewares/globalError.Hendelaer";
-
+import router from "./router";
 
 const app = express()
+
+
 app.use(expressSession({
     secret: envVars.EXPRESS_SESSION_SECRET,
     resave: false,
@@ -21,6 +22,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(cookieParser())
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
 app.use("/api/v1", router)
