@@ -12,8 +12,6 @@ import { globalErrorHandler } from "./app/middlewares/globalError.Hendelaer";
 
 
 const app = express()
-
-
 app.use(expressSession({
     secret: envVars.EXPRESS_SESSION_SECRET,
     resave: false,

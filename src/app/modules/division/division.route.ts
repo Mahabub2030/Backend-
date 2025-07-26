@@ -15,7 +15,7 @@ router.post(
     "/create",
     checkAuth(Role.ADMIN, Role.SUPER_ADMIN),
     multerUpload.single('file'),
-    // validateRequest(createDivisionSchema),
+    validateRequest(createDivisionSchema),
     DivisionController.createDivision
 );
 router.get("/", DivisionController.getAllDivisions);
