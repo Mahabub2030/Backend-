@@ -2,6 +2,7 @@ import { Server } from "http";
 import app from "./app";
 import mongoose from "mongoose";
 import { seedSuperAdmin } from "./utils/seedSuperAdmin";
+import { connectRedis } from "./app/config/redis.config";
 // import { envVars } from "./config/env";
 const PORT = process.env.PORT || 4000;
 let server: Server;
@@ -22,7 +23,8 @@ const startServer = async () => {
 };
 (async () => {
   await startServer();
-   await seedSuperAdmin();
+  await seedSuperAdmin();
+  await connectRedis();
 })();
 
 // Error Handling below

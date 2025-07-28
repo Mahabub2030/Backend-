@@ -5,7 +5,6 @@ import { User } from "../user/user.model";
 import { sendEmail } from "../../../utils/sendEmail";
 const OTP_EXPIRATION = 2 * 60; // 2minute
 
-
 const generateOtp = (length = 6) => {
   //6 digit otp
   const otp = crypto.randomInt(10 ** (length - 1), 10 ** length).toString();
