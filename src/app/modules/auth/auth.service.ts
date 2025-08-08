@@ -13,7 +13,7 @@ import { createNewAccessTokenWithRefreshToken } from "../../../utils/userTokens"
 import { sendEmail } from "../../../utils/sendEmail";
 
 
-// const credentialsLogin = async (payload: Partial<IUser>) => {
+// const credential9+sLogin = async (payload: Partial<IUser>) => {
 //     const { email, password } = payload;
 
 //     const isUserExist = await User.findOne({ email })

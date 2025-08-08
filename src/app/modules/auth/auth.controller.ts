@@ -17,7 +17,6 @@ const credentialsLogin = catchAsync(async (req: Request, res: Response, next: Ne
     // const loginInfo = await AuthServices.credentialsLogin(req.body)
 
     passport.authenticate("local", async (err: any, user: any, info: any) => {
-
         if (err) {
 
             // ❌❌❌❌❌
